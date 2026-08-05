@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="ApiProduto.Application/ApiProduto.Application.csproj" Id="77e939c7-b202-4ae5-9304-04f1d715bc25" />
+  <Project Path="ApiProduto.Domain/ApiProduto.Domain.csproj" Id="6f9c5f11-a1fa-4e91-b39c-53cb124ae50d" />
+  <Project Path="ApiProduto.Infraestrutura/ApiProduto.Infraestrutura.csproj" Id="73a55cdd-dc80-4db8-b1e0-7b45285b8c3c" />
+  <Project Path="WebApplication1/ApíProduto.csproj" />
+</Solution>
