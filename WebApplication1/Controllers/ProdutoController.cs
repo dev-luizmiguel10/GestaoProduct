@@ -17,7 +17,7 @@ namespace ApíProduto.Controllers
         }
 
         [HttpPost]
-        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(typeof(ProdutoDto),StatusCodes.Status201Created)]
         [ProducesResponseType(typeof(ProdutoError),StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> CadastraProduto( [FromBody]ProdutoDto produto)
         {
@@ -37,7 +37,7 @@ namespace ApíProduto.Controllers
         public async Task<IActionResult> GetId(int id)
         {
            var pr= await _prod.GetProductId(id);
-            return Ok(pr);
+            return pr==null ? NotFound() : Ok(pr);
         }
 
         [HttpPut("{id}")]
@@ -48,7 +48,7 @@ namespace ApíProduto.Controllers
             return Ok(pr);
         }
         [HttpDelete("{id}")]
-        [ProducesResponseType(StatusCodes.Status202Accepted)]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
         public async Task<IActionResult> Delete(int id) {
             
             await _prod.DeleteProduct(id);

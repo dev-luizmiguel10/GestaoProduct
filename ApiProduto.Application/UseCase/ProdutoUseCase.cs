@@ -18,7 +18,7 @@ namespace ApiProduto.Application.UseCase
             _prod = prod;
         }
 
-        public async Task<Produto> CadastroProduto(ProdutoDto produto)
+        public async Task<ProdutoDto> CadastroProduto(ProdutoDto produto)
         {
             await ValidarProduto(produto);
 
@@ -32,22 +32,22 @@ namespace ApiProduto.Application.UseCase
             await _prod.AdcionarProduto(add_produto);
             await _uniti.Save();
 
-            return add_produto;
+            return new ProdutoDto
+            {
+                nome_produto = add_produto.nome_produto,
+                preco = add_produto.preco,
+                qtd_estoque = add_produto.qtd_estoque
+            };
 
         }
         public async Task ValidarProduto(ProdutoDto produto)
         {
             var pr = new ProdutoValidation();
             var result = await pr.ValidateAsync(produto);
-            try
-            {
+            
             if (!result.IsValid)
                 throw new ProdutoOnException(result.Errors.Select(e => e.ErrorMessage).ToList());
-            }
-            catch (ProdutoOnException ex)
-            {
-                throw new ProdutoOnException(ex.Errors);
-            }
+            
         }
 
         public async Task DeleteProduct(int id)

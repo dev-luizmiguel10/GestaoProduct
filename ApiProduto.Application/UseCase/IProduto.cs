@@ -8,7 +8,7 @@ namespace ApiProduto.Application.UseCase
 {
     public interface IProduto
     {
-        public Task<Produto> CadastroProduto(ProdutoDto produto);
+        public Task<ProdutoDto> CadastroProduto(ProdutoDto produto);
         Task<Produto> GetProductId(int id);
         Task<List<Produto>> ListaProdutos();
         Task<Produto> EditarProduct(int id, ProdutoDto produto);

@@ -35,6 +35,10 @@ namespace ApiProduto.Infraestrutura.Repositorio
         {
             var product= await _db.Produtos.FirstOrDefaultAsync(p=>p.ProdutoId == id);
 
+            if (product == null)
+            {
+                return null;
+            }
             product.preco = produto.preco;
             product.nome_produto=produto.nome_produto;
             product.qtd_estoque=produto.qtd_estoque;
