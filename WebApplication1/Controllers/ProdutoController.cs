@@ -18,7 +18,7 @@ namespace ApíProduto.Controllers
 
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(ProdutoError),StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> CadastraProduto( [FromBody]ProdutoDto produto)
         {
             await _prod.CadastroProduto(produto);
@@ -47,7 +47,7 @@ namespace ApíProduto.Controllers
             var pr = await _prod.EditarProduct(id,produto);
             return Ok(pr);
         }
-        [HttpPatch("{id}")]
+        [HttpDelete("{id}")]
         [ProducesResponseType(StatusCodes.Status202Accepted)]
         public async Task<IActionResult> Delete(int id) {
             

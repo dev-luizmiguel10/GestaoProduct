@@ -24,7 +24,11 @@ namespace ApiProduto.Infraestrutura.Repositorio
         public async Task DeleteProduct(int id)
         {
             var delete=await _db.Produtos.FirstOrDefaultAsync(s=>s.ProdutoId==id);
-           _db.Produtos.Remove(delete);
+            if (delete==null)
+            {
+                return;
+            }
+            _db.Produtos.Remove(delete);
         }
 
         public async Task<Produto> EditarProduct(int id,Produto produto)

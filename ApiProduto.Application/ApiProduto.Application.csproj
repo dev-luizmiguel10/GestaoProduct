@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ApiProduto.Domain\ApiProduto.Domain.csproj" />
+    <ProjectReference Include="..\ApiProduto.Exception\ApiProduto.Exception.csproj" />
   </ItemGroup>
 
 </Project>

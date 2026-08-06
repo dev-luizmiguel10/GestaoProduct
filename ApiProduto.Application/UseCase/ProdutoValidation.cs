@@ -1,4 +1,5 @@
 ﻿using ApiProduto.Application.DTO;
+using ApiProduto.Exception.Produtos;
 using FluentValidation;
 using System;
 using System.Collections.Generic;
@@ -10,9 +11,9 @@ namespace ApiProduto.Application.UseCase
     {
         public ProdutoValidation()
         {
-            RuleFor(p => p.preco).NotNull().NotEmpty().WithMessage("Preco nao pode ser vazio");
-            RuleFor(q=>q.qtd_estoque).NotNull().NotEmpty();
-            RuleFor(n=>n.nome_produto).NotNull().NotEmpty();
+            RuleFor(p => p.preco).NotNull().NotEmpty().WithMessage(Produtos.Preco);
+            RuleFor(q=>q.qtd_estoque).NotNull().GreaterThan(0).WithMessage(Produtos.Estoque);
+            RuleFor(n=>n.nome_produto).NotNull().NotEmpty().WithMessage(Produtos.Nome_Produto);
         }
     }
 }

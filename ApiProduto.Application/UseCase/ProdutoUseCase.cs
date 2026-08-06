@@ -4,7 +4,8 @@ using ApiProduto.Domain.Interface;
 using System;
 using System.Collections.Generic;
 using System.Text;
-
+using FluentValidation;
+using ApiProduto.Exception.Produtos;
 namespace ApiProduto.Application.UseCase
 {
     public class ProdutoUseCase : IProduto
@@ -34,11 +35,19 @@ namespace ApiProduto.Application.UseCase
             return add_produto;
 
         }
-        public  async Task ValidarProduto(ProdutoDto produto)
+        public async Task ValidarProduto(ProdutoDto produto)
         {
-            var pr =  new ProdutoValidation();
-            var produts = await pr.ValidateAsync(produto);
-
+            var pr = new ProdutoValidation();
+            var result = await pr.ValidateAsync(produto);
+            try
+            {
+            if (!result.IsValid)
+                throw new ProdutoOnException(result.Errors.Select(e => e.ErrorMessage).ToList());
+            }
+            catch (ProdutoOnException ex)
+            {
+                throw new ProdutoOnException(ex.Errors);
+            }
         }
 
         public async Task DeleteProduct(int id)
