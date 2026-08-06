@@ -67,6 +67,9 @@ namespace ApiProduto.Application.UseCase
             };
 
             var product = await _prod.EditarProduct(id, pr);
+            if (product == null)
+                throw new ProdutoOnException(new List<string> { "Produto não encontrado no sistema." });
+            
             product.preco = produto.preco;
             product.nome_produto = produto.nome_produto;
             product.qtd_estoque=produto.qtd_estoque;
