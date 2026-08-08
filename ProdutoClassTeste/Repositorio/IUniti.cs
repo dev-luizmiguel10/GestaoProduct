@@ -8,9 +8,9 @@ namespace ProdutoClassTeste.Repositorio
 {
     public class IUniti
     {
-        public  static IUniti Save()
+        public  static ApiProduto.Domain.Interface.IUniti SaveChanges()
         {
-            var mq= new Mock<IUniti>();
+            var mq= new Mock<ApiProduto.Domain.Interface.IUniti>();
             return mq.Object;
         }
     }
