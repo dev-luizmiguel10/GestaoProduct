@@ -27,7 +27,7 @@ namespace TesteProductUnitario.Produto
             var cadastro = TesteProduto.Teste();
             cadastro.nome_produto = string.Empty;
             var result = new ProdutoValidation();
-            Assert.True(result.Validate(cadastro).IsValid);
+            Assert.False(result.Validate(cadastro).IsValid);
         }
         [Fact]
         public void QTD_Estoque_Vazio()
@@ -35,7 +35,7 @@ namespace TesteProductUnitario.Produto
             var cadastro = TesteProduto.Teste();
             cadastro.qtd_estoque = 0;
             var result = new ProdutoValidation();
-            Assert.True(result.Validate(cadastro).IsValid);
+            Assert.False(result.Validate(cadastro).IsValid);
         }
         [Fact]
         public void Preco_Produto_Vazio()
@@ -43,7 +43,7 @@ namespace TesteProductUnitario.Produto
             var cadastro = TesteProduto.Teste();
             cadastro.preco = 0;
             var result = new ProdutoValidation();
-            Assert.True(result.Validate(cadastro).IsValid);
+            Assert.False(result.Validate(cadastro).IsValid);
         }
 
         [Fact]
@@ -58,7 +58,7 @@ namespace TesteProductUnitario.Produto
 
             var classe_produto = new ProdutoUseCase(moq_salve, moq_aplication_Produto);
             var add_produto = await classe_produto.CadastroProduto(cadastro_produto);
-            Assert.True(validationResult.IsValid);
+            Assert.NotNull(add_produto);
 
 
         }
@@ -72,7 +72,7 @@ namespace TesteProductUnitario.Produto
             var moq_salve = IUniti.SaveChanges();
             var classe_produto = new ProdutoUseCase(moq_salve, moq_aplication_Produto);
             var add_produto = await classe_produto.EditarProduct(1, cadastro_produto);
-            Assert.True(validationResult.IsValid);
+            Assert.NotNull(add_produto);
 
         }
         [Fact]
