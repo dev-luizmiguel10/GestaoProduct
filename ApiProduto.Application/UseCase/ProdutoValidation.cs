@@ -12,7 +12,7 @@ namespace ApiProduto.Application.UseCase
         public ProdutoValidation()
         {
             RuleFor(p => p.preco).NotNull().NotEmpty().WithMessage(Produtos.Preco);
-            RuleFor(q=>q.qtd_estoque).NotNull().GreaterThan(0).WithMessage(Produtos.Estoque);
+            RuleFor(q=>q.qtd_estoque).NotNull().GreaterThan(1).WithMessage(Produtos.Estoque);
             RuleFor(n=>n.nome_produto).NotNull().NotEmpty().WithMessage(Produtos.Nome_Produto);
         }
     }

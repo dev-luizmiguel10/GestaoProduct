@@ -3,5 +3,8 @@
   <Project Path="ApiProduto.Domain/ApiProduto.Domain.csproj" Id="6f9c5f11-a1fa-4e91-b39c-53cb124ae50d" />
   <Project Path="ApiProduto.Exception/ApiProduto.Exception.csproj" Id="874c89fe-6914-432c-a12c-c9063a877a07" />
   <Project Path="ApiProduto.Infraestrutura/ApiProduto.Infraestrutura.csproj" Id="73a55cdd-dc80-4db8-b1e0-7b45285b8c3c" />
+  <Project Path="ProductTesteIntegration/ProductTesteIntegration.csproj" Id="71eb2354-9217-43ff-b8e9-08309aa1600e" />
+  <Project Path="ProdutoClassTeste/ProdutoClassTeste.csproj" Id="a7e39655-6474-4b58-b889-1dc7ef619c22" />
+  <Project Path="TesteProduct/TesteProductUnitario.csproj" Id="0d5ff5a1-9a22-47f3-ba7c-524239081b7d" />
   <Project Path="WebApplication1/ApíProduto.csproj" />
 </Solution>
