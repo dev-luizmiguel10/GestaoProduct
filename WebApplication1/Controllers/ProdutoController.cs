@@ -21,8 +21,8 @@ namespace ApíProduto.Controllers
         [ProducesResponseType(typeof(ProdutoError),StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> CadastraProduto( [FromBody]ProdutoDto produto)
         {
-            await _prod.CadastroProduto(produto);
-            return Created(string.Empty, produto);
+          var pr=  await _prod.CadastroProduto(produto);
+            return Created(string.Empty, pr);
         }
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]

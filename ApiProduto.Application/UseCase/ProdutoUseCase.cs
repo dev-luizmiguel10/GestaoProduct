@@ -34,6 +34,7 @@ namespace ApiProduto.Application.UseCase
 
             return new ProdutoDto
             {
+                id = add_produto.ProdutoId,
                 nome_produto = add_produto.nome_produto,
                 preco = add_produto.preco,
                 qtd_estoque = add_produto.qtd_estoque
