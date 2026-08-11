@@ -29,6 +29,7 @@ namespace ProductTesteIntegration.Factory
             Assert.Equal(HttpStatusCode.Created, response.StatusCode);
         }
 
+
         [Fact]
         public async Task EditarProduto()
         {
